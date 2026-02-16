@@ -38,23 +38,17 @@
         <nav>
         <!-- ↑ <nav> - navigācijas elements -->
 
-            <h1>Paula Dejus</h1>
+            <h1><a href="https://itvkn2026.github.io/" class="logo-link">Paula Dejus</a></h1>
             <!-- ↑ <h1> - Galvenais virsraksts (lielākais) -->
             <!-- Šeit students raksta savu vārdu -->
 
             <ul>
             <!-- ↑ <ul> - Unordered List (saraksts ar punktiem) -->
 
-                <li><a href="index.html">Sākums</a></li>
-                <!-- ↑ <li> - List Item (saraksta elements) -->
-                <!-- <a href="..."> - saite uz citu lapu -->
-                <!-- href="index.html" - ved uz šo pašu lapu -->
 
                 <li><a href="about.html">Par mani</a></li>
                 <!-- ↑ Saite uz "Par mani" lapu (vēl nav izveidota) -->
 
-                <li><a href="contact.html">Kontakti</a></li>
-                <!-- ↑ Saite uz "Kontakti" lapu (vēl nav izveidota) -->
 
             </ul>
             <!-- ↑ Saraksta beigas -->
@@ -90,75 +84,84 @@
         <section class="portfolio">
         <!-- ↑ Jauna sekcija ar class="portfolio" -->
 
-            <h2>Izvēlētie darbi</h2>
+          <!-- <h2>Izvēlētie darbi</h2> -->
             <!-- ↑ Sekcijas virsraksts -->
 
             <div class="gallery">
             <!-- ↑ <div> - Container (kastīte grupēšanai) -->
             <!-- class="gallery" - CSS izmantos, lai izveidotu grid layout -->
 
-                <!-- PROJEKTS 1 -->
-                <div class="project-card card1">
-                <!-- ↑ Pirmā projekta kartīte -->
-                <!-- 2 klases: "project-card" (vispārīgi stili) + "card1" (specifiskā krāsa) -->
-
-                    <img src="Art/Artwork1/Artwork1.jpg" alt="Project1">
-                    <!-- ↑ <img> tags attēlam -->
-                    <!-- src="Art/Artwork1/Artwork1.jpg" - ceļš uz attēlu -->
-                    <!-- alt="..." - alternatīvs teksts (ja attēls neielādējas) -->
-
-                    <h3>Projekts 1</h3>
-                    <!-- ↑ <h3> - Trešā līmeņa virsraksts -->
-                    <!-- ✏️ ŠEI mainīt darba nosaukumu -->
-
-                    <p>Fotogrāfija, 2025</p>
-                    <!-- ↑ Īss darba apraksts -->
-                    <!-- ✏️ ŠEI mainīt darba aprakstu un gadu -->
+                <!-- PROJEKTS 1 - ACCORDION -->
+                <div class="project-card card1 accordion-card">
+                
+                    <img src="Art/Artwork1/Artwork1.jpg" alt="Projekta nosaukums" onclick="toggleAccordion(this)">
+                    
+                    <h3>Projekta nosaukums</h3>
+                    <p>Īss apraksts, 2025</p>
+                    
+                    <!-- Accordion saturs (sākumā paslēpts) -->
+                    <div class="accordion-content">
+                        <h4>Detalizēts apraksts:</h4>
+                        <p>Šeit raksti garu aprakstu par darbu. Vairāki paragrāfi. Tehnoloģijas, process, koncepcija.</p>
+                        <p>Vēl viens paragrāfs ar vairāk informācijas...</p>
+                        <p><strong>Izmantotās tehnoloģijas:</strong> Unity, Blender, C#</p>
+                    </div>
+                    
+                </div>
+                <!-- ↑ Projekta 1 beigas -->
 
                 </div>
                 <!-- ↑ Projekta 1 beigas -->
 
-                <!-- PROJEKTS 2 -->
+               <!-- PROJEKTS 2 - POP-UP -->
                 <div class="project-card card2">
-                <!-- ↑ Otrā projekta kartīte -->
-                <!-- card2 = cita fona krāsa CSS -->
-
-                    <img src="Art/Artwork2/Artwork2.jpg" alt="Project2">
-                    <!-- ↑ Attēls otrajam projektam -->
-                    <!-- src="Art/Artwork2/Artwork2.jpg" - ceļš uz attēlu -->
-
-                    <h3>Projekts 2</h3>
-                    <!-- ↑ Otra projekta nosaukums -->
-                    <!-- ✏️ ŠEI mainīt darba nosaukumu -->
-
-                    <p>Fotogrāfija, 2024</p>
-                    <!-- ↑ Otra projekta apraksts -->
-                    <!-- ✏️ ŠEI mainīt darba aprakstu un gadu -->
-
+                
+                    <img src="Art/Artwork2/Artwork2.jpg" alt="Projekta nosaukums" onclick="openPopup('popup2')">
+                    
+                    <h3>Projekta nosaukums</h3>
+                    <p>Ģeneratīvā māksla, 2025</p>
+                    
                 </div>
                 <!-- ↑ Projekta 2 beigas -->
 
-                <!-- PROJEKTS 3 -->
-                <div class="project-card card3">
-                <!-- ↑ Trešā projekta kartīte -->
-
-                    <img src="Art/Artwork3/Artwork3.jpg" alt="Project3">
-                    <!-- ↑ Attēls trešajam projektam -->
-                    <!-- src="Art/Artwork3/Artwork3.jpg" - ceļš uz attēlu -->
-
-                    <h3>Projekts 3</h3>
-                    <!-- ↑ Trešā projekta nosaukums -->
-                    <!-- ✏️ ŠEI mainīt darba nosaukumu -->
-
-                    <p>Fotogrāfija, 2023</p>
-                    <!-- ↑ Trešā projekta apraksts -->
-                    <!-- ✏️ ŠEI mainīt darba aprakstu un gadu -->
-
-                </div>
+                <!-- PROJEKTS 3 - JAUNA LAPA -->
+                <a href="artwork3.html" class="project-link">
+                    <div class="project-card card3">
+                    
+                        <img src="Art/Artwork3/Artwork3.jpg" alt="Projekta nosaukums">
+                        
+                        <h3>Projekta nosaukums</h3>
+                        <p>Web eksperiments, 2025</p>
+                        
+                    </div>
+                </a>
                 <!-- ↑ Projekta 3 beigas -->
 
             </div>
             <!-- ↑ Gallery beidzas -->
+
+            </div>
+            <!-- ↑ Gallery beidzas -->
+
+            <!-- POP-UP LOGS PROJEKTAM 2 -->
+            <div id="popup2" class="popup">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup('popup2')">&times;</span>
+                    
+                    <img src="Art/Artwork2/Artwork2.jpg" alt="Projekta nosaukums">
+                    
+                    <div class="popup-text">
+                        <h2>Projekta nosaukums</h2>
+                        <p><strong>Par darbu:</strong></p>
+                        <p>Detalizēts apraksts par darbu. Tehnoloģijas, koncepcija, process. Vairāki paragrāfi ar informāciju.</p>
+                        <p>Vēl viens paragrāfs...</p>
+                        <p><strong>Izmantotās tehnoloģijas:</strong> p5.js, WebGL, JavaScript</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- ↑ Portfolio sekcijas beigas -->
 
         </section>
         <!-- ↑ Portfolio sekcijas beigas -->
@@ -199,7 +202,7 @@
 
     </footer>
     <!-- ↑ Footer beidzas -->
-
+<script src="script.js"></script>
 </body>
 <!-- ↑ Body beidzas -->
 
