@@ -35,7 +35,7 @@ body {
     /* ↑ Teksta krāsa - gandrīz melns (ne 100% melns) */
     /* Hex kods: # + 6 simboli (RR GG BB) */
    
-    background: #00d5ff;
+    background: #ffffff;
     /* ↑ Lapas fona krāsa - gaišs pelēks */
 }
 
@@ -240,7 +240,8 @@ main {
     /* ↑ CSS Grid layout (nevis flexbox) */
     /* Grid = 2D layout (rindas UN kolonnas) */
    
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+   grid-template-columns: 1fr;
+    max-width: 800px;
     /* ↑ MAĢIJA! Automātisks kolonnu skaits */
     /* repeat = atkārto */
     /* auto-fit = pielāgojas ekrāna platumam */
