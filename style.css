@@ -1,4 +1,54 @@
 /* ============================================
+   CSS VARIABLES - Mainīt šeit!
+   ============================================ */
+
+:root {
+    /* FONTU IZMĒRI */
+    --font-h1: 3rem;           /* Hero virsraksts (desktop) */
+    --font-h2: 2rem;           /* Sekciju virsraksti */
+    --font-h3: 1.25rem;        /* Projektu nosaukumi */
+    --font-h4: 1.1rem;         /* Accordion virsraksti */
+    --font-body: 1rem;         /* Pamata teksts */
+    --font-small: 0.95rem;     /* Mazs teksts */
+    --font-tiny: 0.875rem;     /* Ļoti mazs teksts */
+    
+    /* HEADER FONTI - Mainīt šeit! */
+    --font-header-logo: 3rem;      /* Paula Dejus izmērs */
+    --font-header-menu: 2rem;      /* Par mani izmērs */
+    
+    /* KRĀSAS */
+    --color-text: #000000;     /* Galvenā teksta krāsa */
+    --color-gray: #666;        /* Vidēji pelēks */
+    --color-light-gray: #999;  /* Gaišs pelēks */
+    --color-dark: #1a1a1a;     /* Tumši pelēks */
+    --color-bg: #ffffff;       /* Lapas fons */
+    --color-bg-light: #f5f5f5; /* Gaišs pelēks fons */
+    --color-border: #e5e5e5;   /* Robežas */
+    
+    /* HEADER HOVER KRĀSAS - Mainīt šeit! */
+    --color-logo-hover: rgb(153, 0, 255);      /* Paula Dejus hover */
+    --color-menu-hover: rgb(153, 0, 255);      /* Par mani hover */
+    
+    /* ATSTARPES */
+    --space-xs: 0.5rem;   /* 8px */
+    --space-sm: 1rem;     /* 16px */
+    --space-md: 1.5rem;   /* 24px */
+    --space-lg: 2rem;     /* 32px */
+    --space-xl: 3rem;     /* 48px */
+    --space-xxl: 4rem;    /* 64px */
+    --space-huge: 8rem;   /* 128px */
+    
+    /* PLATUMI */
+    --max-width: 1400px;  /* Maksimālais platums */
+    --gallery-width: 800px; /* Galerijas platums */
+    
+    /* ANIMĀCIJAS */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.4s;
+}
+
+/* ============================================
    CSS RESET - Noņem pārlūka default stilus
    ============================================ */
 
@@ -21,22 +71,11 @@
    ============================================ */
 
 body {
-    /* ↑ Stili VISAM lapas saturam */
-   
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    /* ↑ Izmanto sistēmas fontu (Mac/Windows default) */
-    /* Sans-serif = bez dekoratīvām līnijām */
-   
+    font-family: 'Roboto Serif', serif;  /* ← MAINĪTS */
     line-height: 1.6;
-    /* ↑ Atstarpe starp teksta rindām (1.6x no fonta izmēra) */
-    /* Laba lasāmība */
-   
-    color: #000000;
-    /* ↑ Teksta krāsa - gandrīz melns (ne 100% melns) */
-    /* Hex kods: # + 6 simboli (RR GG BB) */
-   
-    background: #ffffff;
-    /* ↑ Lapas fona krāsa - gaišs pelēks */
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-size: var(--font-body);
 }
 
 /* ============================================
@@ -44,88 +83,50 @@ body {
    ============================================ */
 
 header {
-    /* ↑ Mērķē <header> tagu */
-   
-    padding: 2rem 4rem;
-    /* ↑ Iekšējās atstarpes: 2rem augšā/apakšā, 4rem kreisais/labais */
-    /* rem = relative unit (1rem ≈ 16px) */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    border-bottom: 1px solid #e5e5e5;
-    /* ↑ Plāna pelēka līnija apakšā */
-    /* 1px biezums, solid līnija, #e5e5e5 krāsa */
+    padding: var(--space-lg) var(--space-xxl);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
 }
 
 nav {
-    /* ↑ Mērķē <nav> tagu header iekšā */
-   
     display: flex;
-    /* ↑ Flexbox layout - elementi rindā */
-   
     justify-content: space-between;
-    /* ↑ Izvieto elementus: viens kreisajā, otrs labajā pusē */
-   
     align-items: center;
-    /* ↑ Centrē elementus vertikāli */
-   
-    max-width: 1400px;
-    /* ↑ Maksimālais platums (lai neizplūstu uz lielajiem ekrāniem) */
-   
+    max-width: var(--max-width);
     margin: 0 auto;
-    /* ↑ Centrē horizontāli: 0 augšā/apakšā, auto kreisais/labais */
 }
 
 nav h1 {
-    /* ↑ Mērķē <h1> kas ir nav iekšā (logo/vārds) */
-   
-    font-size: 1rem;
-    /* ↑ Izmērs 1rem (≈16px) - mazs, minimālistisks */
-   
+    font-size: var(--font-header-logo);
     font-weight: 500;
-    /* ↑ Svars 500 (starp normal 400 un bold 700) */
-   
     letter-spacing: -0.02em;
-    /* ↑ Samazina atstarpi starp burtiem (saspiež) */
-    /* Negatīvs = tuvāk kopā */
+}
+
+.logo-link {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.logo-link:hover {
+    color: var(--color-logo-hover);
 }
 
 nav ul {
-    /* ↑ Mērķē <ul> sarakstu nav iekšā */
-   
     list-style: none;
-    /* ↑ Noņem aizzīmes (bullet points) */
-   
     display: flex;
-    /* ↑ Saraksta elementi rindā (ne pa vertikāli) */
-   
-    gap: 3rem;
-    /* ↑ Atstarpe starp saraksta elementiem */
+    gap: var(--space-xl);
 }
 
 nav a {
-    /* ↑ Mērķē VISAS saites (<a>) nav iekšā */
-   
-    color: #666;
-    /* ↑ Vidēji pelēka krāsa */
-   
+    color: var(--color-gray);
     text-decoration: none;
-    /* ↑ Noņem pasvītrojumu */
-   
-    font-size: 0.95rem;
-    /* ↑ Mazliet mazāks par normālo (15.2px) */
-   
-    transition: color 0.2s;
-    /* ↑ Smooth krāsas maiņa 0.2 sekundes */
-    /* Animē hover efektu */
+    font-size: var(--font-header-menu);
+    transition: color var(--transition-fast);
 }
 
 nav a:hover {
-    /* ↑ Kad pele ir virs saites */
-   
-    color: #1a1a1a;
-    /* ↑ Kļūst tumšāka (gandrīz melna) */
+    color: var(--color-menu-hover);
 }
 
 /* ============================================
@@ -156,6 +157,9 @@ main {
     padding: 8rem 0 6rem;
     /* ↑ Padding: 8rem augšā, 0 kreisais/labais, 6rem apakšā */
     /* Daudz vietas augšā un apakšā */
+
+    text-align: center;
+    /* ↑ JAUNS! Centrē visu tekstu */
 }
 
 .hero h2 {
@@ -163,6 +167,7 @@ main {
    
     font-size: 4rem;
     /* ↑ Ļoti liels (64px) - galvenais virsraksts */
+    
    
     font-weight: 300;
     /* ↑ Plāns fonts (light) */
@@ -176,6 +181,9 @@ main {
    
     line-height: 1.1;
     /* ↑ Mazāka atstarpe starp rindām (kompaktāks) */
+
+    text-align: center;
+    /* ↑ JAUNS! Centrē visu tekstu */
 }
 
 .hero p {
@@ -183,6 +191,7 @@ main {
    
     font-size: 1.25rem;
     /* ↑ Lielāks par normālo (20px) */
+    
    
     color: #666;
     /* ↑ Vidēji pelēks (vieglāks par virsrakstu) */
@@ -193,6 +202,8 @@ main {
     max-width: 600px;
     /* ↑ Ierobežo teksta platumu (lasāmībai) */
     /* Pārāk plats teksts ir grūti lasāms */
+
+    margin: 0 auto;
 }
 
 /* ============================================
@@ -234,22 +245,11 @@ main {
    ============================================ */
 
 .gallery {
-    /* ↑ Container projektu kartītēm */
-   
     display: grid;
-    /* ↑ CSS Grid layout (nevis flexbox) */
-    /* Grid = 2D layout (rindas UN kolonnas) */
-   
-   grid-template-columns: 1fr;
-    max-width: 800px;
-    /* ↑ MAĢIJA! Automātisks kolonnu skaits */
-    /* repeat = atkārto */
-    /* auto-fit = pielāgojas ekrāna platumam */
-    /* minmax(400px, 1fr) = minimums 400px, maksimums 1 daļa */
-    /* Rezultāts: 3 kolonnas plašam, 2 vidējam, 1 mobilajam */
-   
-    gap: 3rem;
-    /* ↑ Atstarpe starp grid elementiem */
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    max-width: var(--gallery-width);
+    margin: 0 auto;
 }
 
 /* ============================================
@@ -257,17 +257,9 @@ main {
    ============================================ */
 
 .project-card {
-    /* ↑ Vispārīgi stili VISĀM kartītēm */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    transition: transform 0.3s ease;
-    /* ↑ Animē transform izmaiņas 0.3 sekundes */
-    /* ease = sākas lēni, paātrinās, beidzas lēni */
-   
+    background: var(--color-bg);
+    transition: transform var(--transition-normal) ease;
     cursor: pointer;
-    /* ↑ Kursors kļūst par rociņu (norāda, ka klikšķināms) */
 }
 
 .project-card:hover {
@@ -310,6 +302,26 @@ main {
     /* ↑ Atstarpe zem attēla */
 }
 
+.project-card img {
+    /* ↑ Īstas bildes projektu kartītēs */
+   
+    width: 100%;
+    /* ↑ Pilns platums */
+   
+    aspect-ratio: 4/3;
+    /* ↑ Saglabā 4:3 proporciju */
+   
+    object-fit: cover;
+    /* ↑ Attēls aizpilda visu vietu, apgriež ja nepieciešams */
+    /* cover = aizpilda visu kastīti, nogriež malās */
+   
+    display: block;
+    /* ↑ Noņem extra space zem attēla */
+   
+    margin-bottom: 1.5rem;
+    /* ↑ Atstarpe zem attēla */
+}
+
 /* Dažādas fona krāsas katrai kartītei */
 
 .card1 .img-placeholder {
@@ -334,32 +346,16 @@ main {
 }
 
 .project-card h3 {
-    /* ↑ Projekta nosaukums kartītē */
-   
-    font-size: 1.25rem;
-    /* ↑ Vidēji liels (20px) */
-   
+    font-size: var(--font-h3);
     font-weight: 400;
-    /* ↑ Normāls svars (ne treknraksts) */
-   
-    color: #1a1a1a;
-    /* ↑ Gandrīz melns */
-   
-    margin-bottom: 0.5rem;
-    /* ↑ Neliela atstarpe zem nosaukuma */
+    color: var(--color-dark);
+    margin-bottom: var(--space-xs);
 }
 
 .project-card p {
-    /* ↑ Projekta apraksts kartītē */
-   
-    color: #666;
-    /* ↑ Vidēji pelēks (vieglāks par nosaukumu) */
-   
-    font-size: 0.95rem;
-    /* ↑ Mazliet mazāks (15.2px) */
-   
+    color: var(--color-gray);
+    font-size: var(--font-small);
     font-weight: 300;
-    /* ↑ Plāns fonts */
 }
 
 /* ============================================
@@ -367,88 +363,46 @@ main {
    ============================================ */
 
 footer {
-    /* ↑ Mērķē <footer> tagu */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    border-top: 1px solid #e5e5e5;
-    /* ↑ Plāna pelēka līnija AUGŠĀ */
-   
-    padding: 3rem 4rem;
-    /* ↑ Padding: 3rem augšā/apakšā, 4rem kreisais/labais */
-   
-    margin-top: 4rem;
-    /* ↑ Liela atstarpe virs footer */
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-xl) var(--space-xxl);
+    margin-top: var(--space-xxl);
 }
 
 .footer-content {
-    /* ↑ Container footer saturam */
-   
-    max-width: 1400px;
-    /* ↑ Ierobežo platumu */
-   
+    max-width: var(--max-width);
     margin: 0 auto;
-    /* ↑ Centrē horizontāli */
-   
     display: flex;
-    /* ↑ Flexbox layout */
-   
     justify-content: space-between;
-    /* ↑ Copyright kreisajā, saites labajā pusē */
-   
     align-items: center;
-    /* ↑ Centrē vertikāli */
 }
 
 footer p {
-    /* ↑ Copyright teksts */
-   
-    color: #999;
-    /* ↑ Gaišs pelēks */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
+    color: var(--color-light-gray);
+    font-size: var(--font-tiny);
 }
 
 .social-links {
-    /* ↑ Container sociālajām saitēm */
-   
     display: flex;
-    /* ↑ Saites rindā */
-   
-    gap: 2rem;
-    /* ↑ Atstarpe starp saitēm */
+    gap: var(--space-lg);
 }
 
 .social-links a {
-    /* ↑ Atsevišķa sociālā saite */
-   
-    color: #666;
-    /* ↑ Vidēji pelēks */
-   
+    color: var(--color-gray);
     text-decoration: none;
-    /* ↑ Bez pasvītrojuma */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
-   
-    transition: color 0.2s;
-    /* ↑ Smooth krāsas maiņa */
+    font-size: var(--font-tiny);
+    transition: color var(--transition-fast);
 }
 
 .social-links a:hover {
-    /* ↑ Kad pele virs saites */
-   
-    color: #1a1a1a;
-    /* ↑ Kļūst tumšāka */
+    color: var(--color-dark);
 }
 
 /* ============================================
    RESPONSIVE - Mobilajiem telefoniem
    ============================================ */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     /* ↑ Media query = CSS kas darbojas TIK JA... */
     /* max-width: 768px = ekrāns 768px vai mazāks */
     /* Tipiskais tablet/phone breakpoint */
@@ -465,25 +419,29 @@ footer p {
     nav {
         /* ↑ Navigācija mobilajā */
        
-        flex-direction: column;
-        /* ↑ Elementi pa vertikāli (ne horizontāli) */
-        /* Logo virs menu */
+        flex-direction: row;
+        /* ↑ Saglabā elementus rindā (NE pa vertikāli) */
+        
+        gap: 1rem;
+        /* ↑ Mazāka atstarpe */
        
-        gap: 1.5rem;
-        /* ↑ Atstarpe starp logo un menu */
-       
-        align-items: flex-start;
-        /* ↑ Izlīdzina pa kreisi (nevis centru) */
+        align-items: center;
+        /* ↑ Centrē vertikāli */
+    }
+    
+    nav h1 {
+        font-size: calc(var(--font-header-logo) * 0.95);
+        /* Mazliet mazāks mobilajā */
     }
 
     nav ul {
-        /* ↑ Menu saraksts mobilajā */
-       
-        gap: 1.5rem;
-        /* ↑ Mazāka atstarpe (3rem → 1.5rem) */
-        
-        flex-wrap: wrap;
-        /* ↑ Ja neietilpst, pārnes uz jaunu rindu */
+        gap: 1rem;
+        flex-wrap: nowrap;
+    }
+    
+    nav a {
+        font-size: calc(var(--font-header-menu) * 0.9);
+        /* Mazāks fonts saitēm mobilajā */
     }
 
     .hero {
@@ -518,16 +476,6 @@ footer p {
         
         gap: 2rem;
         /* ↑ Mazāka atstarpe starp projektiem */
-    }
-    
-  .project-card img,
-    .video-container {
-        /* ↑ Bildes UN video mobilajā */
-        
-        aspect-ratio: 16/9;
-        /* ↑ Platāks formāts mobilajiem */
-        width: 100%;
-        /* ↑ Pilns platums */
     }
 
     .footer-content {
@@ -578,28 +526,35 @@ footer p {
     /* Rāda ka var klikšķināt */
 }
 
+.accordion-card img {
+    /* Pārliecinās ka accordion bilde ir tāda pati kā pārējām */
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
 .accordion-content {
-    /* Paslēptais saturs */
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    padding: 0 1.5rem;
+    transition: max-height var(--transition-slow) ease, padding var(--transition-slow) ease;
+    padding: 0 var(--space-md);
 }
 
 .accordion-card.active .accordion-content {
-    /* Kad atvērts */
     max-height: 2000px;
-    padding: 1.5rem;
-    padding-top: 1rem;
-    background: #fafafa;
-    margin-top: 1rem;
+    padding: var(--space-md);
+    padding-top: var(--space-sm);
+    background: var(--color-bg-light);
+    margin-top: var(--space-sm);
     border-radius: 4px;
 }
 
 .accordion-content h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #1a1a1a;
+    font-size: var(--font-h4);
+    margin-bottom: var(--space-sm);
+    color: var(--color-dark);
 }
 
 .accordion-content p {
@@ -968,54 +923,39 @@ footer p {
    VIDEO EMBED (PROJEKTS 4)
    ============================================ */
 
-/* ============================================
-   VIDEO EMBED (PROJEKTS 4)
-   ============================================ */
-
 .video-container {
     position: relative;
-    width: 100% !important;
-    /* ↑ !important pārliecinās ka vienmēr pilns platums */
-    
+    width: 100%;
     aspect-ratio: 4/3;
     overflow: hidden;
-    margin-bottom: 1.5rem;
     background: #000;
+    margin-bottom: 1.5rem;
 }
 
 .video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    /* ↑ !important pārliecinās ka aizpilda visu */
-    
+    width: 100%;
+    height: 100%;
     border: none;
 }
 
-.project-card .video-container {
-    /* Specifisks stils kartītē */
-    width: 100%;
-    display: block;
-}
-
-=========================
+/* ============================================
    KOPSAVILKUMS - KO MAINĪT:
    ============================================
    
    KRĀSAS:
-   - Rinda 32: Teksta krāsa (#1a1a1a)
-   - Rinda 35: Fona krāsa (#fafafa)
+   - Rinda 34: Teksta krāsa (#000000)
+   - Rinda 38: Fona krāsa (#ffffff)
    - Rinda 54: Header fons (white)
    
    IZMĒRI:
-   - Rinda 139: Hero virsraksts (4rem)
-   - Rinda 227: Galvenā platums (1400px)
+   - Hero virsraksts (4rem desktop, 2rem mobile)
+   - Galvenā platums (1400px)
    
    FONTI:
    - Rinda 26: Font family
    
    ============================================ */
-
 
